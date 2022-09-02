@@ -22,7 +22,9 @@ export default function Item({cantProduct, setCantProduct, item}) {
     <div className='producto'>
       <h3>{item.producto.nombre}</h3>
       <p>{item.producto.descripcion}</p>
-      <h5>En Stock <span>{item.stock}</span></h5>
+       {item.stock > 0 ?
+        <h5>En Stock: {item.stock}</h5>:
+        <h5>En Stock: <span>agotado</span></h5>}
       {item.stock > 0 ?
       <button onClick={buy}>COMPRAR</button>:
       <button disabled> SIN STOCK </button>}
